@@ -21,3 +21,25 @@ HRESULT input(const string& inputString, int inputNum);
 
 HRESULT output(string& outputString, int& outputNum);
 ```
+
+## Function const
+
+### When a function is declared as const, it can be called on any type of object. Non-const functions can only be called by non-const objects.
+
+```cpp
+class Test { 
+    int value; 
+public: 
+    Test(int v = 0) {value = v;} 
+      
+    // We get compiler error if we add a line like "value = 100;" 
+    // in this function. 
+    int getValue() const {return value;}   
+}; 
+  
+int main() { 
+    Test t(20); 
+    cout<<t.getValue(); 
+    return 0; 
+} 
+```
